@@ -80,9 +80,9 @@ class _EditProductScreenState extends State<EditProductScreen> {
     try {
       final productsManger = context.read<ProductsManager>();
       if (_editedProduct.id != null) {
-        productsManger.updateProduct(_editedProduct);
+        await productsManger.updateProduct(_editedProduct);
       } else {
-        productsManger.addProduct(_editedProduct);
+        await productsManger.addProduct(_editedProduct);
       }
     } catch (error) {
       await showErrorDialog(context, 'Something went wrong.');
